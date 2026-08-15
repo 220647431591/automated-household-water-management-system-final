@@ -1,0 +1,28 @@
+/* Custom animations from the original design */
+--animate-fadeInOut: fadeInOut 3s ease-in-out infinite;
+--animate-bounceY: bounceY 2s ease-in-out infinite;
+/* Refined marquee: smoother easing, moderate speed, pause at center */
+--animate-marqueePause: marqueePause 16s ease-in-out infinite;
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+@keyframes bounceY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+/* Refined marquee scroll:
+   - Starts smoothly from right
+   - Pauses centered for ~2s
+   - Ends smoothly to the left */
+@keyframes marqueePause {
+  0%   { transform: translateX(100%); opacity: 0; }
+  10%  { opacity: 1; }
+  40%  { transform: translateX(0); }   /* pause at center */
+  60%  { transform: translateX(0); }   /* hold for a moment */
+  90%  { opacity: 1; }
+  100% { transform: translateX(-100%); opacity: 0; }
+}

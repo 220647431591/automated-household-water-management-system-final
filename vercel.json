@@ -1,0 +1,32 @@
+{
+  "functions": {
+    "api/**/*.ts": {
+      "maxDuration": 10
+    }
+  },
+  "rewrites": [
+    { "source": "/api/login", "destination": "/api/auth/login" },
+    { "source": "/api/register", "destination": "/api/auth/register" },
+    { "source": "/api/logout", "destination": "/api/auth/logout" },
+    { "source": "/api/me", "destination": "/api/auth/me" },
+    { "source": "/api/forgot-password", "destination": "/api/auth/forgot-password" },
+    { "source": "/api/reset-password", "destination": "/api/auth/reset-password" },
+
+    { "source": "/api/change-password", "destination": "/api/account/change-password" },
+    { "source": "/api/update-profile", "destination": "/api/account/update-profile" },
+    { "source": "/api/delete-account", "destination": "/api/account/delete-account" },
+
+    { "source": "/api/usage", "destination": "/api/data/usage" },
+    { "source": "/api/usage-trend", "destination": "/api/data/usage-trend" },
+    { "source": "/api/leakage", "destination": "/api/data/leakage" },
+    { "source": "/api/reports", "destination": "/api/data/reports" },
+    { "source": "/api/export", "destination": "/api/data/export" },
+
+    { "source": "/api/notification-settings", "destination": "/api/notifications/notification-settings" },
+    { "source": "/api/notification-history", "destination": "/api/notifications/notification-history" },
+    { "source": "/api/test-email", "destination": "/api/notifications/test-email" },
+
+    { "source": "/api/ingest-usage", "destination": "/api/device/ingest-usage" },
+    { "source": "/api/ingest-leakage", "destination": "/api/device/ingest-leakage" }
+  ]
+}

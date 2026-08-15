@@ -1,0 +1,49 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+.output
+.vinxi
+.tanstack/**
+.nitro
+*.local
+
+# Composer dependencies (PHPMailer) — installed via `composer install`, not committed.
+Backend/vendor/
+backend-legacy/vendor/
+
+# Wrangler / Cloudflare
+.wrangler/
+.dev.vars
+
+# Environment files with real secrets — never commit these.
+# .env.example is the only env file meant to be tracked.
+.env
+.env.*
+!.env.example
+Backend/.env
+Backend/.env.*
+!Backend/.env.example
+backend-legacy/.env
+backend-legacy/.env.*
+!backend-legacy/.env.example
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.vercel

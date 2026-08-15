@@ -1,0 +1,58 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  /* professional motion: slow start, smooth acceleration, moderate exit */
+  --animate-titleMarquee: titleMarquee 40s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+  /* Floating house icon on the auth pages (login, register, etc.) */
+  --animate-bounceY: bounceY 2s ease-in-out infinite;
+  /* Login page title: smooth continuous fade in / hold / fade out */
+  --animate-fadeInOut: fadeInOut 7.5s ease-in-out infinite;
+}
+
+@keyframes bounceY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes fadeInOut {
+  0%   { opacity: 0; }
+  30%  { opacity: 1; }
+  70%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes titleMarquee {
+  /* Enter: fade-in across first 9 letters, slow → medium ramp */
+  0%   { transform: translateX(70vw); opacity: 0; }
+  25%  { transform: translateX(0); opacity: 1; }   /* fade-in complete, smooth acceleration */
+
+  /* Centre: fully clear, hold ~1s */
+  50%  { transform: translateX(0); opacity: 1; }
+
+  /* Exit: fade-out only during last 9 letters, moderate descending */
+  90%  { transform: translateX(-40vw); opacity: 1; }   /* still clear */
+  100% { transform: translateX(-70vw); opacity: 0; }   /* fade-out at last 9 letters */
+}
+
+/* Edge mask so first/last letters stay clear */
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 0%,
+    black 100%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 0%,
+    black 100%,
+    transparent
+  );
+  height: 3rem;
+}

@@ -1,0 +1,25 @@
+# Prevent directory listing
+Options -Indexes
+
+# Deny direct access to includes
+<FilesMatch "^(config|bootstrap)\.php$">
+    Require all denied
+</FilesMatch>
+
+# Block .sql/.md files from being downloaded
+<FilesMatch "\.(sql|md)$">
+    Require all denied
+</FilesMatch>
+
+# Block .env and any dotfile (credentials, device token, SMTP password live here).
+# Without this, a plain Apache deployment will happily serve /Backend/.env as
+# a static text file to anyone who requests it.
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+# Block composer.json/.lock (dependency fingerprinting) — not sensitive by
+# itself, but no reason to expose it publicly either.
+<FilesMatch "^composer\.(json|lock)$">
+    Require all denied
+</FilesMatch>
